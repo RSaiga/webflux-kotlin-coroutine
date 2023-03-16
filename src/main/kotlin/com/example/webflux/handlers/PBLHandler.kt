@@ -9,15 +9,16 @@ import org.springframework.web.reactive.function.server.bodyValueAndAwait
 
 @Component
 class PBLHandler {
-  suspend fun search(request: ServerRequest): ServerResponse {
-    val expected = """
+    suspend fun search(request: ServerRequest): ServerResponse {
+        val expected = """
       {
         "id": 1,
         "priority": 1,
         "title": "test1",
         "body": "A.C. xxx"
       }
-    """.trimIndent()
-    return ok().contentType(APPLICATION_JSON).bodyValueAndAwait(expected)
-  }
+        """.trimIndent()
+        request.attributes()
+        return ok().contentType(APPLICATION_JSON).bodyValueAndAwait(expected)
+    }
 }

@@ -8,10 +8,10 @@ import org.springframework.web.reactive.function.server.coRouter
 
 @Configuration
 class PBLRoutes {
-  @Bean
-  fun router(handler: PBLHandler) = coRouter {
-    accept(MediaType.APPLICATION_JSON).nest {
-      GET("/todos", handler::search)
+    @Bean
+    fun router(handler: PBLHandler) = coRouter {
+        accept(MediaType.APPLICATION_JSON).nest {
+            GET("/todos", handler::search)
+        }
     }
-  }
 }
